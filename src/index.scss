@@ -19,3 +19,25 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+//icon 
+//标题红色圆环
+.icon-circle-o {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: $font-color7;
+  border-radius: 50%;
+  @include shadow(2px);
+  &::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+}

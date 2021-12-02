@@ -13,6 +13,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      .recommend {
+        width: 930px;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     .content-right {
       box-sizing: border-box;
