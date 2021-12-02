@@ -1,0 +1,35 @@
+.top-container {
+  height: 40px;
+  width: 40px;
+  background-color: $bg-color;
+  border-radius: 4px;
+  @include shadow(5px);
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  i {
+    font-size: 40px;
+  }
+  &:hover {
+    background-color: $bg-color-hover;
+    &::before {
+      left: -7em;
+      position: absolute;
+      content: "回到顶部";
+      transition: all 1s;
+      height: 100%;
+      display: flex;
+      padding: 0 1em;
+      @include shadow(5px);
+      border-radius: 5px;
+      align-items: center;
+      color: #fff;
+      background-color: #20232a;
+    }
+  }
+}

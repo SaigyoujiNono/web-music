@@ -1,0 +1,101 @@
+.carousel-container {
+  margin-top: 36px;
+  position: relative;
+  width: 100%;
+  min-width: 1200px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  //   background-color: rgba(255, 140, 140, 0.5);
+  .filter-bg {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(15px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .carousel-img {
+    z-index: 0;
+    width: 1200px;
+    height: 400px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .carousel-btn {
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $font-normal;
+    transition: all 0.5s;
+    &.left {
+      top: 40%;
+      left: -10%;
+      @media screen and (max-width: 1600px) {
+        left: 5%;
+      }
+    }
+    &.right {
+      top: 40%;
+      right: -10%;
+      @media screen and (max-width: 1600px) {
+        right: 5%;
+      }
+    }
+    &:hover {
+      color: $font-high;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  //选择点
+  .select-pointer {
+    height: 18px;
+    position: absolute;
+    display: flex;
+    bottom: 5%;
+    >span {
+      border-radius: 50%;
+      margin: 0 8px;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.5);
+      transition: all 0.5s;
+      &:hover {
+        background-color: $bg-color3;
+      }
+      &.active {
+        background-color: $bg-color3;
+      }
+    }
+  }
+}
+
+.carousel-enter {
+  opacity: 0;
+}
+
+.carousel-enter-active {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.carousel-exit {
+  opacity: 1;
+}
+
+.carousel-exit-active {
+  opacity: 0;
+  transition: all 1s;
+}

@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//导航栏
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  min-width: 1200px;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  color: $font-normal;
+  //通用样式
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  // 锁定导航栏
+  #lock-bar {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  //导航栏居中块
+  .navbar-container {
+    background-color: $bg-color;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 140px;
+      height: 60px;
+      a {
+        width: 140px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: 700;
+      }
+    }
+    .navbar-item {
+      display: flex;
+      height: 100%;
+      li {
+        list-style: none;
+        display: flex;
+        a {
+          display: flex;
+          align-items: center;
+          padding-left: 1em;
+          padding-right: 1em;
+          &.active {
+            background-color: #000000;
+            color: $font-high;
+          }
+          &:hover {
+            background-color: #000000;
+            color: $font-high;
+          }
+        }
+      }
+    }
+  }
+  //次级导航栏
+  .navbar-second {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: $bg-color3;
+    @include shadow(4px);
+    &.active {
+      height: 36px;
+    }
+    &.unactive {
+      padding: 3px 0;
+    }
+    //次级导航栏居中块
+    .second-container {
+      margin: 0 auto;
+      width: 1200px;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      color: $font-high;
+      //次级导航栏菜单
+      .menu {
+        display: flex;
+        align-items: center;
+        li {
+          display: flex;
+          height: 24px;
+          margin: 0 15px;
+          a {
+            font-size: 14px;
+            padding: 4px 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 15px;
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.5);
+            }
+            &.active {
+              background-color: rgba(0, 0, 0, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @include animation-scroll(up, 0.5s);
+// @include animation-scroll(down, 0.5s);
+//动画
+//向上滚动时navbar的动画
+.animation-scroll-top {
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-name: direction-top;
+  position: sticky;
+}
+
+@keyframes direction-top {
+  0% {
+    top: -60px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+//向下滚动时navbar的动画
+.animation-scroll-down {
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-name: direction-down;
+  position: sticky;
+}
+
+@keyframes direction-down {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -60px;
+  }
+}

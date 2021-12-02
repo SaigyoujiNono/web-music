@@ -1,0 +1,28 @@
+@mixin shadow($size:2px) {
+  box-shadow: 0 0 $size rgba(0, 0, 0, 0.5);
+}
+
+@mixin animation-scroll($direction:up, $time:0.5s) {
+  animation-fill-mode: forwards;
+  animation-duration: $time;
+  animation-name: direction-$direction;
+  position: sticky;
+}
+
+@keyframes direction-top {
+  0% {
+    top: -60px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes direction-down {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -60px;
+  }
+}

@@ -1,0 +1,49 @@
+.footer {
+  background-color: $bg-color5;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+  a {
+    &:hover {
+      text-decoration: underline;
+      color: black;
+    }
+  }
+  .footer-container {
+    width: 1200px;
+    height: 100px;
+    color: $font-color6;
+    font-size: 12px;
+    margin-top: 20px;
+    display: flex;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: #d3d3d3;
+    }
+    >.left {
+      width: 50%;
+    }
+    >.right {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      >div {
+        margin: 0 25px;
+        i {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+  .deep-font {
+    color: $font-color5;
+  }
+}

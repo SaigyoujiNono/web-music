@@ -1,15 +1,21 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div {
+* {
   padding: 0px;
   margin: 0px;
 }
 
-div {
-  box-sizing: border-box;
+li {
+  list-style: none;
+}
+
+body {
+  background-color: $bg-color4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
