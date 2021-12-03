@@ -41,3 +41,23 @@ a {
     border-radius: 50%;
   }
 }
+
+.icon-circle-reverse {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  @include shadow(2px);
+  &::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 8px;
+    height: 8px;
+    background-color: $font-color7;
+    border-radius: 50%;
+  }
+}

@@ -81,28 +81,50 @@ function PalyBar() {
     }
 
     //音量
-    let [volume,setVolume] = useState(0)
     //控制音量
+    const volumeWholeRef = useRef<HTMLDivElement>(null)
+    const volumeRef = useRef<HTMLDivElement>(null)
     useEffect(()=>{
         const musicControl = musicRef.current
-        setVolume(musicControl.volume)
-    },[volume])
+        const volumeWhole = volumeWholeRef.current
+        const volume = volumeRef.current
 
-    //改变进度条
-    function progressHandle(e){
-        let event = window.Event
-        let target = e.target
-        console.log('caugth',event);
-        console.log(target,'click');
-    }
+        volume.style.width = musicControl.volume*100+'%'
+
+        //移动指针
+        const movePointer = (e:PointerEvent)=>{
+            let movedCurrent = (e.pageX-volumeWhole.getBoundingClientRect().x)/volumeWhole.getBoundingClientRect().width
+            movedCurrent = movedCurrent < 0 ? 0 : movedCurrent > 1 ? 1 : movedCurrent
+            volume.style.width = movedCurrent*100+'%'
+            musicControl.volume = movedCurrent
+        }
+        //抬起指针
+        const upPointer = (e:PointerEvent)=>{
+            movePointer(e)
+            volumeWhole.removeEventListener('pointermove',movePointer)
+            volumeWhole.removeEventListener('pointerup',upPointer)
+        }
+        //监控进度条指针事件
+        volumeWhole.addEventListener('pointerdown',(e)=>{
+            volumeWhole.setPointerCapture(e.pointerId)
+            //暂时移除进度条监听
+
+            volumeWhole.addEventListener('pointermove',movePointer)
+            volumeWhole.addEventListener('pointerup',upPointer)
+        })
+    },[])
+
+    //整个进度条
+    const progressMusicRef = useRef(null);
 
     //歌曲长度
     const [musicDuration,setMusicDuration] = useState('')
     useEffect(()=>{
-        const musicControl = musicRef.current
-        const progress = progessRef.current
+        const musicControl = musicRef.current   //audio标签
+        const progress = progessRef.current //播放进度条
         let currentTime = document.getElementById('audio-current')  //当前播放时间musicControl.addEventListener('loadeddata',()=>setMusicDuration(numToMinSecond(musicControl.duration)))
         const cache = progessCacheRef.current
+        const progressWhole = progressMusicRef.current  //整个播放进度条，用来控制鼠标按下抬起
         //歌曲长度
         musicControl.addEventListener('loadeddata',()=>setMusicDuration(numToMinSecond(musicControl.duration)))
         //缓存条监听器
@@ -120,6 +142,36 @@ function PalyBar() {
         musicControl.addEventListener('timeupdate',musicPlayProgressListener)
         //播放结束监听
         musicControl.addEventListener('ended',()=>changeMusic(true)())
+
+        //移动指针
+        const movePointer = (e:PointerEvent)=>{
+            let movedCurrent = (e.pageX-progressWhole.getBoundingClientRect().x)/progressWhole.getBoundingClientRect().width
+            movedCurrent = movedCurrent < 0 ? 0 : movedCurrent > 1 ? 1 : movedCurrent
+            progress.style.width = movedCurrent*100+'%'
+            currentTime.innerHTML = numToMinSecond(movedCurrent*musicControl.duration)
+        }
+        //抬起指针
+        const upPointer = (e:PointerEvent)=>{
+            let movedCurrent = (e.pageX-progressWhole.getBoundingClientRect().x)/progressWhole.getBoundingClientRect().width
+            movedCurrent = movedCurrent < 0 ? 0 : movedCurrent > 1 ? 1 : movedCurrent
+            progress.style.width = movedCurrent*100+'%'
+            musicControl.currentTime = movedCurrent*musicControl.duration
+            progressWhole.removeEventListener('pointermove',movePointer)
+            progressWhole.removeEventListener('pointerup',upPointer)
+            //鼠标抬起后重新监听进度条
+            musicControl.addEventListener('timeupdate',musicPlayProgressListener)
+        }
+        //监控进度条指针事件
+        progressWhole.addEventListener('pointerdown',(e)=>{
+            progressWhole.setPointerCapture(e.pointerId)
+            //暂时移除进度条监听
+            musicControl.removeEventListener('timeupdate',musicPlayProgressListener)
+
+            progressWhole.addEventListener('pointermove',movePointer)
+            progressWhole.addEventListener('pointerup',upPointer)
+        })
+        
+
     },[changeMusic])
 
     //播放监听
@@ -153,12 +205,11 @@ function PalyBar() {
                             <Link to={'/artist/'+(currentPlay?.artistId?currentPlay.artistId:'')} id="audio-author" className="author">{currentPlay?.artist?currentPlay.artist:''}</Link>
                         </div>
                         <div className="audio-progress">
-                            <div id="audio-progress" onClick={progressHandle} className="progress">
+                            <div ref={progressMusicRef} className="progress">
                                 <div ref={progessCacheRef} id="progress-cache"></div>
                                 <div ref={progessRef} id="progress-current" className="progress-current">
-                                    <div id="progress-cursor" className="progress-cursor">
-                                        <span></span>
-                                    </div>
+                                    <i className="progress-cursor icon-circle-reverse">
+                                    </i>
                                 </div>
                             </div>
                             <div className="progress-info">
@@ -174,11 +225,9 @@ function PalyBar() {
                         <div className="volume-icon">
                             <i className="fa fa-volume-up"></i>
                         </div>
-                        <div id="volume-progress" className="volume-progress">
-                            <div style={{width:volume*100+'%'}} id="volume-current" className="progress-current">
-                                <div className="progress-cursor">
-                                    <span></span>
-                                </div>
+                        <div ref={volumeWholeRef} id="volume-progress" className="volume-progress">
+                            <div ref={volumeRef} id="volume-current" className="progress-current">
+                                <i className="progress-cursor icon-circle-reverse"></i>
                             </div>
                         </div>
                     </div>

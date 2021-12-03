@@ -15,6 +15,9 @@
   justify-content: center;
   z-index: 1;
   color: $font-normal;
+  @media screen and (max-width: $max-width1) {
+    min-width: 960px;
+  }
   //通用样式
   a {
     color: inherit;
@@ -35,6 +38,9 @@
     width: 1200px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: $max-width1) {
+      width: 960px;
+    }
     .logo {
       width: 140px;
       height: 60px;
@@ -92,6 +98,9 @@
       justify-content: center;
       height: 100%;
       color: $font-high;
+      @media screen and (max-width: $max-width1) {
+        width: 960px;
+      }
       //次级导航栏菜单
       .menu {
         display: flex;

@@ -6,6 +6,9 @@
     background-color: $bg-color6;
     display: flex;
     @include shadow(4px);
+    @media screen and (max-width: $max-width1) {
+      width: 960px;
+    }
     .content-left {
       box-sizing: border-box;
       width: 900px;
@@ -13,17 +16,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      @media screen and (max-width: $max-width1) {
+        width: 700px;
+      }
       .recommend {
         width: 930px;
         display: flex;
         flex-wrap: wrap;
+        @media screen and (max-width: $max-width1) {
+          width: 740px;
+        }
       }
     }
     .content-right {
       box-sizing: border-box;
-      width: 300px;
+      flex: 1;
       height: 400px;
       background-color: burlywood;
+      @media screen and (max-width: $max-width1) {
+        min-width: 260px;
+      }
     }
   }
 }

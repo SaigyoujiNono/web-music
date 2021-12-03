@@ -88,6 +88,24 @@ function Home(){
                             })}
                         </div>
                     </Recommend>
+                    <Recommend title={{title:'新碟上架',url:'/'}}>
+                        <div className="recommend">
+                            {PlayListArray.map((n,index)=>{
+                                return (
+                                    <SongListCard key={index} playListInfo={n}></SongListCard>
+                                )
+                            })}
+                        </div>
+                    </Recommend>
+                    <Recommend title={{title:'榜单',url:'/'}}>
+                        <div className="recommend">
+                            {PlayListArray.map((n,index)=>{
+                                return (
+                                    <SongListCard key={index} playListInfo={n}></SongListCard>
+                                )
+                            })}
+                        </div>
+                    </Recommend>
                 </div>
                 <div className="content-right">
                 </div>

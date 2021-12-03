@@ -17,9 +17,9 @@ function Recommend(props){
                 <div className="title-tab">
                     <ul>
                     {props.tab &&
-                        props.tab.map(n =>{
+                        props.tab.map((n,index) =>{
                             return (
-                                <Fragment>
+                                <Fragment key={index}>
                                     <li><Link to={n.url}>{n.title}</Link></li>
                                     {n!==props.tab[props.tab.length - 1]?'|':''}
                                 </Fragment>

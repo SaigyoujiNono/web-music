@@ -22,6 +22,10 @@ function Carousel(){
             {
                 url:'http://p1.music.126.net/XNG-BEqUigizNTf80114LA==/109951166677811355.jpg?imageView&quality=89',
                 target: '/'
+            },
+            {
+                url:'http://p1.music.126.net/UcwDMvhm2dpagflDhgK4jA==/109951166681419498.jpg?imageView&quality=89',
+                target: '/'
             }
         ]
     },[])

@@ -52,7 +52,7 @@ function NavBar(){
     }
 
     //次级导航选择
-    const [secondActive, setSecondActive] = useState(2)
+    const [secondActive, setSecondActive] = useState(0)
     function changeSecond(val:number){
         return ()=>{
             setSecondActive(val)

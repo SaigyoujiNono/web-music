@@ -23,14 +23,23 @@ $fontHightlight:#e8e8e8;
   box-shadow: 0 -2px 4px $shadow1;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: $max-width1) {
+    min-width: 960px;
+  }
   .play-container {
     height: 100%;
     width: 1200px;
     display: flex;
+    @media screen and (max-width: $max-width1) {
+      width: 960px;
+    }
     //控制区域
     .play-controller {
       width: 160px;
       display: flex;
+      @media screen and (max-width: $max-width1) {
+        width: 120px;
+      }
       div {
         flex: 1;
         display: flex;
@@ -59,6 +68,9 @@ $fontHightlight:#e8e8e8;
     .play-show {
       width: 700px;
       display: flex;
+      @media screen and (max-width: $max-width1) {
+        width: 600px;
+      }
       .title-img {
         width: $barHeight;
         height: $barHeight;
@@ -92,7 +104,7 @@ $fontHightlight:#e8e8e8;
             position: relative;
             margin-top: 4px;
             margin-left: 9px;
-            flex: 60%;
+            width: 70%;
             height: 12px;
             background-color: #191919;
             @include shadow-inset(5px);
@@ -160,21 +172,8 @@ $fontHightlight:#e8e8e8;
   //游标
   .progress-cursor {
     position: absolute;
-    right: -9px;
-    top: -3px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    height: 18px;
-    width: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    right: -8px;
+    top: -2px;
     box-shadow: 0 0 10px $shadow1;
-    span {
-      width: 8px;
-      height: 8px;
-      background-color: #c70c0c;
-      border-radius: inherit;
-    }
   }
 }

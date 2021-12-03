@@ -18,6 +18,9 @@
     font-size: 12px;
     margin-top: 20px;
     display: flex;
+    @media screen and(max-width: $max-width1) {
+      width: 960px;
+    }
     &::before {
       content: "";
       position: absolute;

@@ -17,12 +17,12 @@ function SongListCard(props){
                     </span>
                     <Link className="play-entry" to={props.playListInfo.url}><i className="fa fa-play-circle-o"></i></Link>
                 </div>
-                <div className="title">
+            </div>
+            <div className="title">
                     <Link to={props.playListInfo.url}>
                         {props.playListInfo.title}
                     </Link>
                 </div>
-            </div>
         </div>
     )
 }
