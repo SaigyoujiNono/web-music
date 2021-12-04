@@ -20,6 +20,17 @@ a {
   color: inherit;
 }
 
+//基础页面
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: $bg-color6;
+  @include shadow(4px);
+  @media screen and (max-width: $max-width1) {
+    width: 960px;
+  }
+}
+
 //icon 
 //标题红色圆环
 .icon-circle-o {

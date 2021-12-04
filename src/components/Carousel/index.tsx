@@ -76,9 +76,9 @@ function Carousel(){
             <div className="filter-bg" style={{backgroundImage: `url(${currentCarousel.url})`}}></div>
             {/* 轮播图片 */}
             <div className="carousel-img">
-            <Link to={currentCarousel.target}>
-                <img ref={imgRef} className="test" src={currentCarousel.url} alt="" /> 
-            </Link>
+                <Link to={currentCarousel.target}>
+                    <img ref={imgRef} src={currentCarousel.url} alt="" /> 
+                </Link>
             <div onClick={changeCarousel(false)} className="carousel-btn left">
                 <i className="fa fa-angle-left"></i>
             </div>

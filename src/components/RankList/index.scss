@@ -1,0 +1,58 @@
+.rank-list {
+  flex: 1;
+  height: 100%;
+  margin: 15px 0;
+  box-sizing: border-box;
+  border: 1px solid $rank-border-color;
+  background-color: $bg-color7;
+  //标题
+  .title {
+    display: flex;
+    padding: 15px;
+    .cover {
+      img {
+        height: 100px;
+        size: cover;
+        @media screen and(max-width: $max-width1) {
+          height: 80px;
+        }
+      }
+    }
+    .description {
+      margin-left: 16px;
+      color: $font-color9;
+      span {
+        color: $font-color8;
+        font-weight: bold;
+      }
+      i {
+        margin-top: 8px;
+        font-size: 20px;
+        margin-right: 8px;
+        &:hover {
+          color: $font-color6;
+        }
+      }
+    }
+  }
+  //列表
+  .list {
+    div {
+      padding: 8px 12px;
+      span {
+        font-size: 12px;
+        margin-right: 8px;
+        &.front {
+          font-size: 14px;
+          color: $font-color7;
+        }
+        &.end {
+          font-size: 14px;
+        }
+      }
+      &.deep {
+        background-color: $bg-color8;
+      }
+    }
+  }
+}

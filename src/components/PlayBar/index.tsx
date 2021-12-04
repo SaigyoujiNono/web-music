@@ -107,8 +107,6 @@ function PalyBar() {
         //监控进度条指针事件
         volumeWhole.addEventListener('pointerdown',(e)=>{
             volumeWhole.setPointerCapture(e.pointerId)
-            //暂时移除进度条监听
-
             volumeWhole.addEventListener('pointermove',movePointer)
             volumeWhole.addEventListener('pointerup',upPointer)
         })
@@ -166,7 +164,6 @@ function PalyBar() {
             progressWhole.setPointerCapture(e.pointerId)
             //暂时移除进度条监听
             musicControl.removeEventListener('timeupdate',musicPlayProgressListener)
-
             progressWhole.addEventListener('pointermove',movePointer)
             progressWhole.addEventListener('pointerup',upPointer)
         })

@@ -48,14 +48,14 @@
     &.left {
       top: 40%;
       left: -10%;
-      @media screen and (max-width: 1600px) {
+      @media screen and (max-width: $max-width-carousel) {
         left: 5%;
       }
     }
     &.right {
       top: 40%;
       right: -10%;
-      @media screen and (max-width: 1600px) {
+      @media screen and (max-width: $max-width-carousel) {
         right: 5%;
       }
     }
@@ -86,22 +86,4 @@
       }
     }
   }
-}
-
-.carousel-enter {
-  opacity: 0;
-}
-
-.carousel-enter-active {
-  opacity: 1;
-  transition: all 1s;
-}
-
-.carousel-exit {
-  opacity: 1;
-}
-
-.carousel-exit-active {
-  opacity: 0;
-  transition: all 1s;
 }

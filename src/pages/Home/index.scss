@@ -1,14 +1,7 @@
 .home {
   margin: 0 auto;
   .content-container {
-    width: 1200px;
-    margin: 0 auto;
-    background-color: $bg-color6;
     display: flex;
-    @include shadow(4px);
-    @media screen and (max-width: $max-width1) {
-      width: 960px;
-    }
     .content-left {
       box-sizing: border-box;
       width: 900px;
@@ -27,15 +20,18 @@
           width: 740px;
         }
       }
+      .rank-list-group {
+        width: 100%;
+        display: flex;
+      }
     }
     .content-right {
       box-sizing: border-box;
+      border-left: 1px solid $rank-border-color;
+      box-sizing: border-box;
       flex: 1;
-      height: 400px;
-      background-color: burlywood;
-      @media screen and (max-width: $max-width1) {
-        min-width: 260px;
-      }
+      display: flex;
+      flex-direction: row;
     }
   }
 }
