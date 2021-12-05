@@ -1,6 +1,9 @@
+import './index.scss'
 function About(){
     return(
-        <h1>关于</h1>
+        <div className='container about-page'>
+            <h1>关于</h1>
+        </div>
     )
 }
 

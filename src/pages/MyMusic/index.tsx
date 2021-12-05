@@ -1,7 +1,7 @@
-
+import './index.scss'
 function MyMusic(){
     return (
-        <div>我的音乐</div>
+        <div className='container mymusic-page '>我的音乐</div>
     )
 }
 

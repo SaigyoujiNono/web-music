@@ -1,0 +1,51 @@
+.artist-page {
+  margin-top: 36px;
+  display: flex;
+  .left {
+    width: 200px;
+    box-sizing: border-box;
+    border-right: 1px solid $rank-border-color;
+    border-bottom: 1px solid $rank-border-color;
+    .artist-category {
+      padding: 40px 18px 15px 18px;
+      .category-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      ul {
+        li {
+          margin: 5px 0;
+          position: relative;
+          a {
+            display: block;
+            padding: 6px 0 6px 16px;
+            font-size: 14px;
+            height: 25px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            &.active {
+              border: 1px solid $rank-border-color;
+              color: $bg-color3;
+              &::before {
+                background-color: $bg-color3;
+              }
+            }
+            &::before {
+              content: "";
+              background-color: #333;
+              width: 6px;
+              height: 6px;
+              position: absolute;
+              left: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right {
+    flex: 1;
+    border: 1px solid $rank-border-color;
+  }
+}

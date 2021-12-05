@@ -1,0 +1,15 @@
+.record {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  height: 180px;
+  margin-right: 10px;
+  .record-cover {
+    position: relative;
+    width: 100%;
+    img {
+      width: 84%;
+    }
+  }
+}

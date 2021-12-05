@@ -1,0 +1,29 @@
+.artist-card {
+  width: 18%;
+  margin-right: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .artist-avatar {
+    position: relative;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .artist-intro {
+    font-size: 14px;
+    @media screen and(max-width: $max-width1) {
+      font-size: 12px;
+    }
+    .artist-name {
+      float: left;
+    }
+    .artist-user {
+      color: $font-color7;
+      text-shadow: 0px 0px 2px $font-color7;
+      &.right-float {
+        float: right;
+      }
+    }
+  }
+}

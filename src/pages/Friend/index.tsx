@@ -1,7 +1,7 @@
-
+import './index.scss'
 function Friend(){
     return (
-        <div>朋友</div>
+        <div className='container friend-page'>朋友</div>
     )
 }
 

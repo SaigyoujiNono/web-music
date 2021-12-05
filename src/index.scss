@@ -31,6 +31,28 @@ a {
   }
 }
 
+.song.msk {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  background-image: url(/assets/img/crystar.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.record.msk {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  background-image: url(/assets/img/record.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 //icon 
 //标题红色圆环
 .icon-circle-o {
@@ -54,7 +76,7 @@ a {
 }
 
 .icon-circle-reverse {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 16px;
   height: 16px;

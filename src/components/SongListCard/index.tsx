@@ -1,26 +1,27 @@
 import { Link } from 'react-router-dom'
 import './index.scss'
 
-function SongListCard(props){
+function SongListCard({playListInfo}){
     
 
     return (
         <div className="play-list-container">
             <div className="cover">
-                <Link to={props.playListInfo.url}><img src={props.playListInfo.cover} alt="" /></Link>
+                <img src={playListInfo.picUrl} alt="" />
                 <div className="playInfo">
                     <span>
                         <i className="fa fa-headphones"></i>
                     </span>
                     <span>
-                        {props.playListInfo.playCount> 10000 ? parseInt(props.playListInfo.playCount/10000+'')+'万':props.playListInfo.playCount}
+                        {playListInfo.playcount> 10000 ? parseInt(playListInfo.playcount/10000+'')+'万':playListInfo.playcount}
                     </span>
-                    <Link className="play-entry" to={props.playListInfo.url}><i className="fa fa-play-circle-o"></i></Link>
+                    <Link className="play-entry" to={'/playlist/'+playListInfo.id}><i className="fa fa-play-circle-o"></i></Link>
                 </div>
+                <Link className="song msk" to={'/playlist/'+playListInfo.id}></Link>
             </div>
             <div className="title">
-                    <Link to={props.playListInfo.url}>
-                        {props.playListInfo.title}
+                    <Link to={'/playlist/'+playListInfo.id}>
+                        {playListInfo.name}
                     </Link>
                 </div>
         </div>

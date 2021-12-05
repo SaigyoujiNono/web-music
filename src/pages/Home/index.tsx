@@ -1,20 +1,16 @@
+import { useEffect, useState } from 'react';
+import { homeNewRecord, homeSongListRecommend } from '../../class/recommendData';
 import Carousel from '../../components/Carousel'
 import LoginInfo from '../../components/LoginInfo';
 import RankList from '../../components/RankList';
 import Recommend from '../../components/Recommend'
+import Record from '../../components/Record';
 import SongListCard from '../../components/SongListCard';
 import './index.scss'
 //标题
 interface Title{
     title: string;
     url: string;
-}
-//歌单
-interface PlayList{
-    playCount: number;
-    cover:string;
-    title:string;
-    url:string;
 }
 //排行榜单
 interface RankListObj{
@@ -88,80 +84,44 @@ function Home(){
     ]
     
     //推荐块的歌单列表
-    const PlayListArray: Array<PlayList> = [
-        {
-            title:'文物图鉴|甲骨问策，篆饰为妆，风雅入宫商',
-            url:'/',
-            cover: 'https://p4.music.126.net/UKn4ofndgUi1_tvEiQhsqg==/109951166650899444.jpg?param=200y200',
-            playCount:495482
-        },
-        {
-            title:'纯音 | 缓解压力.安眠.去享受孤独',
-            url:'/',
-            cover: 'https://p4.music.126.net/fwdzwLoiVilnyxQTbVsKQA==/109951166586104216.jpg?param=200y200',
-            playCount:19578542
-        },
-        {
-            title:'华语民谣 I 孤独的心诠释诗意和远方',
-            url:'/',
-            cover: 'https://p4.music.126.net/UDpjFEHmXInxGd_xMAI12w==/109951162811986419.jpg?param=200y200',
-            playCount:20428242
-        },
-        {
-            title:'「乐器大师」流行歌曲与管弦乐器的浪漫邂逅',
-            url:'/',
-            cover: 'https://p4.music.126.net/hoUVnjKPGTD9CWbWSmRncA==/109951164227086022.jpg?param=200y200',
-            playCount:4412242
-        },
-        {
-            title:'文物图鉴|甲骨问策，篆饰为妆，风雅入宫商',
-            url:'/',
-            cover: 'https://p4.music.126.net/UKn4ofndgUi1_tvEiQhsqg==/109951166650899444.jpg?param=200y200',
-            playCount:495482
-        },
-        {
-            title:'纯音 | 缓解压力.安眠.去享受孤独',
-            url:'/',
-            cover: 'https://p4.music.126.net/fwdzwLoiVilnyxQTbVsKQA==/109951166586104216.jpg?param=200y200',
-            playCount:19578542
-        },
-        {
-            title:'华语民谣 I 孤独的心诠释诗意和远方',
-            url:'/',
-            cover: 'https://p4.music.126.net/UDpjFEHmXInxGd_xMAI12w==/109951162811986419.jpg?param=200y200',
-            playCount:20428242
-        },
-        {
-            title:'「乐器大师」流行歌曲与管弦乐器的浪漫邂逅',
-            url:'/',
-            cover: 'https://p4.music.126.net/hoUVnjKPGTD9CWbWSmRncA==/109951164227086022.jpg?param=200y200',
-            playCount:4412242
-        }
-    ]
+    const [playList,setPlayList] = useState<Array<any>>(null)
+    const [newRecord, setNewRecord] = useState<Array<any>>(null)
+    useEffect(()=>{
+        setPlayList(homeSongListRecommend)
+        setNewRecord(homeNewRecord)
+    },[])
     return (
         <div className="home">
             <Carousel></Carousel>
             <div className="container content-container">
                 <div className="content-left">
-                    <Recommend tab={tabArray} title={{title:'编辑推荐',url:'/'}}>
+                    <Recommend isIcon={true} tab={tabArray} title={{title:'编辑推荐',url:'/'}}>
                         <div className="recommend">
-                            {PlayListArray.map((n,index)=>{
-                                return (
-                                    <SongListCard key={index} playListInfo={n}></SongListCard>
-                                )
-                            })}
+                            {playList &&
+                                playList.map((n,index)=>{
+                                    return (
+                                        <SongListCard key={index} playListInfo={n}></SongListCard>
+                                    )
+                                })
+                            }
                         </div>
                     </Recommend>
-                    <Recommend title={{title:'新碟上架',url:'/'}}>
-                        <div className="recommend">
-                            {PlayListArray.map((n,index)=>{
-                                return (
-                                    <SongListCard key={index} playListInfo={n}></SongListCard>
-                                )
-                            })}
+                    <Recommend isIcon={true} title={{title:'新碟上架',url:'/'}}>
+                        <div className="new-record">
+                            <div className='rl-left-btn'></div>
+                            <div className='record-content'>
+                                <ul className="record-list">
+                                    {newRecord && 
+                                        newRecord.map((n,index)=>{
+                                            return <Record key={index} album={n}></Record>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <div className='rl-right-btn'></div>
                         </div>
                     </Recommend>
-                    <Recommend title={{title:'榜单',url:'/'}}>
+                    <Recommend isIcon={true} title={{title:'榜单',url:'/'}}>
                         <div className="rank-list-group">
                             {rankArray.map((n,index)=>{
                                 return (

@@ -1,6 +1,8 @@
+import './index.scss'
+
 function Error(){
     return (
-        <div>404</div>
+        <div className="container error-page">404</div>
     )
 }
 

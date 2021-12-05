@@ -6,10 +6,14 @@ function Recommend(props){
 
 
     return (
-        <div className="recommend-card">
+        <div className="recommend-card ">
             <div className="title-container">
-                <div className="title">
-                    &nbsp;&nbsp;<i className="icon-circle-o"></i>&nbsp;&nbsp;
+                <div className={"title "+props.className}>
+                    {props.isIcon === true && 
+                        (
+                            <Fragment>&nbsp;&nbsp;<i className="icon-circle-o"></i>&nbsp;&nbsp;</Fragment>
+                        )
+                    }
                     {props.title && 
                         <Link to={props.title.url}>{props.title.title}</Link>
                     }

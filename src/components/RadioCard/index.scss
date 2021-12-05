@@ -1,0 +1,29 @@
+.radio-card {
+  width: 42%;
+  margin-right: 7%;
+  height: 160px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  padding: 15px 0;
+  a {
+    img {
+      height: 100%;
+      size: cover;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    .title {
+      font-size: 18px;
+      color: #333;
+    }
+    .second {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+}

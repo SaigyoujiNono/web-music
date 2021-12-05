@@ -1,0 +1,20 @@
+.category-page {
+  margin-bottom: 15px;
+  .category-content {
+    width: 102%;
+    display: flex;
+    flex-wrap: wrap;
+    .gap-border {
+      width: 98%;
+      display: block;
+      border: 1px dotted $rank-border-color;
+      background-color: rgb(34, 33, 33);
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+  }
+  .recommend-title {
+    font-weight: 600;
+    font-size: 24px;
+  }
+}

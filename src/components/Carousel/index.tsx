@@ -1,10 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { CarouselSingle } from '../../class/music';
 import './index.scss'
-interface CarouselSingle{
-    url: string;
-    target: string;
-}
 
 let timer = null
 function Carousel(){
